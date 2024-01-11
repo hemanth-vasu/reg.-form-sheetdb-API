@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webinar Registration Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Webinar Registration Form</h2>
+    <form action="#" method="POST" id="sheetdb-form">
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" name="data[FullName]" pattern="[A-Za-z ]{3,20}" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="data[Email]" pattern="[a-z@.0-9]{11,30}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">PhoneNumber</label>
+            <input type="tel" class="form-control" id="phone" name="data[PhoneNumber]" pattern="[6-9]{1}[0-9]{9}"` required>
+        </div>
+
+        <div class="mb-3">
+            <label for="qualification" class="form-label">Highest Qualification</label>
+            <select class="form-select" id="qualification" name="data[Qualification]" required>
+                <option value="10th">10th Grade</option>
+                <option value="12th">12th Grade</option>
+                <option value="diploma">Diploma</option>
+                <option value="B.E">Bachelor's Degree</option>
+                <option value="master">Master's Degree</option>
+                <option value="phd">Ph.D</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="occupation" class="form-label">Current Occupation</label>
+            <select class="form-select" id="occupation" name="data[Occupation]" required>
+                <option value="student">Student</option>
+                <option value="employee">Employee</option>
+                <option value="employer">Employer</option>
+                <option value="retired">Retired</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <select class="form-select" id="state" name="data[State]" required>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Delhi (National Capital Territory of Delhi)">Delhi (National Capital Territory of Delhi)</option>
+                <option value="Puducherry">Puducherry</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Ladakh">Ladakh</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="purpose" class="form-label">Your Intention or Purpose of Joining this Webinar</label>
+            <textarea class="form-control" id="purpose" name="data[Purpose]" rows="3" maxlength="50" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <script>
+            var form = document.getElementById("sheetdb-form")
+            form.addEventListener("submit", e=>{
+                e.preventDefault();
+                fetch(form.action,{
+                    method: "POST",
+                    body: new FormData(document.getElementById("sheetdb-form"))
+                }).then((html) => {
+                    window.open('submission.html', '_blank');
+                })
+            })
+        </script>
+    </form>
+</div>
+<br>
+
+</body>
+</html>
